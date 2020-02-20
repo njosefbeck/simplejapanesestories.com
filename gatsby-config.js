@@ -35,5 +35,14 @@ module.exports = {
         host: `preview.contentful.com`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Noto Sans JP\:400,900` // you can also specify font weights and styles
+        ],
+        display: 'swap&subset=japanese',
+      }
+    }
   ],
 }

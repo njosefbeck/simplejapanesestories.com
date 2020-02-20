@@ -1,0 +1,33 @@
+.header {
+  background-color: #fff;
+}
+
+.content {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 16px;
+  margin: 0;
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .title {
+    text-align: left;
+    width: 50%;
+  }
+}
+
+@media (min-width: 700px) {
+  .content {
+    display: flex;
+    justify-content: space-between;
+  }
+}

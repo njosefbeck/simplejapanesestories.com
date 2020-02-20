@@ -1,0 +1,36 @@
+.layout {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #1b1b1b;
+  background-color: #1b1b1b;
+}
+
+.layout a {
+  color: #b71c1c;
+  transition: color 0.2s ease-in;
+}
+
+.layout a:hover {
+  color: #f05545;
+}
+
+.layout a:visited {
+  color: #7f0000;
+}
+
+.layout button {
+  background-color: #fff;
+  border: 2px solid #b71c1c;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+  color: #b71c1c;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.layout button:hover {
+  border: 2px solid #f05545;
+  color: #f05545;
+}
