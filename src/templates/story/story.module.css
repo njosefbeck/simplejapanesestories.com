@@ -2,7 +2,7 @@
   font-size: 24px;
 }
 
-.story header {
+.header {
   padding: 6rem 2rem;
   text-align: center;
   background-color: #eee;
@@ -15,4 +15,25 @@
 .story h2 {
   margin: 0.5rem 0 0;
   font-size: 18px;
+}
+
+.content {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.translation {
+  color: #c7c7c7;
+  line-height: 1.4;
+  margin-top: -15px;
+}
+
+.isHidden {
+  display: none;
 }
