@@ -23,9 +23,11 @@
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 4rem;
-  padding-bottom: 1.5rem;
   line-height: 1.8;
+}
+
+.content p:first-child {
+  margin-top: 0;
 }
 
 .translation {
