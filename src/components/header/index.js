@@ -1,6 +1,6 @@
-import React from 'react'
-import styles from './header.module.css'
-import Nav from '../nav'
+import React from "react"
+import styles from "./header.module.css"
+import Nav from "../nav"
 
 export default () => (
   <header className={styles.header}>

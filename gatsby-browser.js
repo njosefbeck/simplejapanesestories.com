@@ -1,1 +1,1 @@
-import './src/global-styles/normalize.css'
+import "./src/global-styles/normalize.css"

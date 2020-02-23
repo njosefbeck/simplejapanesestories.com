@@ -1,8 +1,8 @@
 import React, { useState } from "react"
-import Layout from '../components/Layout'
+import Layout from "../components/layout"
 import PageHeader from "../components/page-header"
-import SEO from '../components/seo'
-import { graphql } from 'gatsby'
+import SEO from "../components/seo"
+import { graphql } from "gatsby"
 import Filters from "../components/filters"
 import StoryCards from "../components/story-cards"
 
@@ -23,20 +23,21 @@ const filterStories = (stories, activeFilters) => {
   })
 }
 
-
 export default ({ data }) => {
   const stories = data.allContentfulStory.nodes
-  const categories = data.allContentfulCategory.nodes.filter(c => c.story && c.story.length)
-  const [ activeFilters, setActiveFilters ] = useState([])
+  const categories = data.allContentfulCategory.nodes.filter(
+    c => c.story && c.story.length
+  )
+  const [activeFilters, setActiveFilters] = useState([])
   const filteredStories = filterStories(stories, activeFilters)
 
   return (
     <Layout>
       <SEO
-        title='Stories | Simple Japanese Stories'
-        unbrandedTitle='Stories'
-        description={'Browse all of the stories!'}
-        slug='stories'
+        title="Stories | Simple Japanese Stories"
+        unbrandedTitle="Stories"
+        description={"Browse all of the stories!"}
+        slug="stories"
       />
       <PageHeader text="Stories" />
       <Filters

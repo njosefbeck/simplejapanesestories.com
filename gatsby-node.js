@@ -40,7 +40,11 @@ exports.createPages = ({ graphql, actions }) => {
       createPage({ path, component, context })
     }
 
-    pages.forEach(node => buildPage(node.slug, pageTemplate, { id: node.id, title: node.title }))
-    stories.forEach(node => buildPage(node.slug, storyTemplate, { id: node.id }))
+    pages.forEach(node =>
+      buildPage(node.slug, pageTemplate, { id: node.id, title: node.title })
+    )
+    stories.forEach(node =>
+      buildPage(node.slug, storyTemplate, { id: node.id })
+    )
   })
 }
