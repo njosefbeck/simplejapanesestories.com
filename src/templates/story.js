@@ -1,18 +1,18 @@
 import React, { useState } from "react"
 import styles from './story.module.css'
-import Layout from '../../components/Layout'
-import SEO from '../../components/seo'
+import Layout from '../components/Layout'
+import SEO from '../components/seo'
 import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import { Furigana } from 'gem-furigana'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import HorizontalRule from "../../components/horizontal-rule"
-import Actions from "../../components/actions"
-import Button from '../../components/button'
+import HorizontalRule from "../components/horizontal-rule"
+import Actions from "../components/actions"
+import Button from '../components/button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
-import Categories from "../../components/categories"
+import Categories from "../components/categories"
 
 const English = ({ text, isHidden }) => {
   const display = isHidden ? { display: 'none' } : {}
