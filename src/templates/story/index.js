@@ -41,7 +41,7 @@ export default ({ data }) => {
   const title = new Furigana(story.title)
   const englishToggleText  = isEnglishHidden ? 'Show English' : 'Hide English'
   const imageStack = [
-    `linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75))`,
+    `linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65))`,
     story.image.file.fluid
   ]
   const options = {
@@ -67,7 +67,7 @@ export default ({ data }) => {
       />
       <article className={styles.story}>
         <BackgroundImage
-          Tag="header"
+          tag="header"
           className={styles.header}
           fluid={imageStack}
           backgroundColor={`#eee`}
@@ -107,6 +107,7 @@ export const query = graphql`
         metaDescription
       }
       categories {
+        id
         slug
         displayText
       }
@@ -115,11 +116,8 @@ export const query = graphql`
       }
       image {
         file {
-          fluid(quality: 90, maxWidth: 800) {
-            src
-            srcSet
-            srcSetWebp
-            srcWebp
+          fluid(maxWidth: 800) {
+            ...GatsbyContentfulFluid_withWebp_noBase64
           }
         }
       }
