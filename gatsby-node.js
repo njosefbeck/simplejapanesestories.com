@@ -9,22 +9,31 @@ const path = require(`path`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  const pageTemplate = path.resolve(`src/templates/page.js`)
+  const pageTemplate = path.resolve(`src/templates/page/index.js`)
   const storyTemplate = path.resolve(`src/templates/story/index.js`)
+  const categoryTemplate = path.resolve(`src/templates/category.js`)
 
   return graphql(`
     query loadPagesQuery {
       allContentfulPage {
         nodes {
           slug
-          title
+          id
         }
       }
       allContentfulStory {
         nodes {
           slug
           id
-          contentful_id
+        }
+      }
+      allContentfulCategory {
+        nodes {
+          slug
+          id
+          story {
+            id
+          }
         }
       }
     }
@@ -35,16 +44,22 @@ exports.createPages = ({ graphql, actions }) => {
 
     const pages = result.data.allContentfulPage.nodes
     const stories = result.data.allContentfulStory.nodes
+    const categories = result.data.allContentfulCategory.nodes
 
     const buildPage = (path, component, context) => {
       createPage({ path, component, context })
     }
 
     pages.forEach(node =>
-      buildPage(node.slug, pageTemplate, { id: node.id, title: node.title })
+      buildPage(node.slug, pageTemplate, { id: node.id })
     )
     stories.forEach(node =>
       buildPage(node.slug, storyTemplate, { id: node.id })
     )
+    categories.forEach(node => {
+      if (node.story) {
+        buildPage(`category/${node.slug}`, categoryTemplate, { id: node.id })
+      }
+    })
   })
 }
