@@ -23,14 +23,15 @@ const English = ({ text, isHidden }) => {
   )
 }
 
-const Japanese = ({ text }) => {
+const Japanese = ({ text, isFuriganaHidden }) => {
   const furigana = new Furigana(text[0])
-  return <p dangerouslySetInnerHTML={{ __html: furigana.ReadingHtml }} />
+  const html = isFuriganaHidden ? furigana.Expression : furigana.ReadingHtml
+  return <p dangerouslySetInnerHTML={{ __html: html }} />
 }
 
-const Paragraph = ({ node, text, isEnglishHidden }) => {
+const Paragraph = ({ node, text, isEnglishHidden, isFuriganaHidden }) => {
   if (!node.content[0].marks.length) {
-    return <Japanese text={text} />
+    return <Japanese text={text} isFuriganaHidden={isFuriganaHidden} />
   }
 
   return <English text={text} isHidden={isEnglishHidden} />
@@ -38,9 +39,12 @@ const Paragraph = ({ node, text, isEnglishHidden }) => {
 
 export default ({ data }) => {
   const [isEnglishHidden, setIsEnglishHidden] = useState(true)
+  const [isFuriganaHidden, setIsFuriganaHidden] = useState(true)
   const story = data.contentfulStory
   const title = new Furigana(story.title)
+  const storyTitle = isFuriganaHidden ? title.Expression : title.ReadingHtml
   const englishToggleText = isEnglishHidden ? "Show English" : "Hide English"
+  const furiganaToggleText = isFuriganaHidden ? "Show Furigana" : "Hide Furigana"
   const imageStack = [
     `linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65))`,
     story.image.file.fluid,
@@ -52,6 +56,7 @@ export default ({ data }) => {
           node={node}
           text={children}
           isEnglishHidden={isEnglishHidden}
+          isFuriganaHidden={isFuriganaHidden}
         />
       ),
     },
@@ -73,14 +78,21 @@ export default ({ data }) => {
           fluid={imageStack}
           backgroundColor={`#eee`}
         >
-          <h1 dangerouslySetInnerHTML={{ __html: title.ReadingHtml }} />
+          <h1 dangerouslySetInnerHTML={{ __html: storyTitle }} />
           <h2>{story.englishTitle}</h2>
         </BackgroundImage>
         <Actions>
-          <Button
-            text={englishToggleText}
-            onClick={() => setIsEnglishHidden(!isEnglishHidden)}
-          />
+          <div>
+            <Button
+              text={englishToggleText}
+              onClick={() => setIsEnglishHidden(!isEnglishHidden)}
+            />
+            <Button
+              style={{ marginLeft: '10px' }}
+              text={furiganaToggleText}
+              onClick={() => setIsFuriganaHidden(!isFuriganaHidden)}
+            />
+          </div>
           <Button
             link={`https://twitter.com/intent/tweet?url=https://simplejapanesestories.com/${story.slug}&text=Just read a great story by @simplejapanese!`}
             text="Tweet"

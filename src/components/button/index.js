@@ -1,11 +1,11 @@
 import React from "react"
 import styles from "./button.module.css"
 
-export default ({ icon, link, onClick, text }) => {
+export default ({ icon, link, onClick, text, style }) => {
   if (link && link.length) {
     return (
       <a href={link} target="_blank" rel="noopener noreferrer">
-        <button className={styles.button}>
+        <button style={style} className={styles.button}>
           {icon} {text}
         </button>
       </a>
@@ -13,7 +13,7 @@ export default ({ icon, link, onClick, text }) => {
   }
 
   return (
-    <button className={styles.button} onClick={onClick}>
+    <button style={style} className={styles.button} onClick={onClick}>
       {icon} {text}
     </button>
   )
