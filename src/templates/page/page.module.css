@@ -5,3 +5,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
+.content p {
+  line-height: 1.5;
+}
