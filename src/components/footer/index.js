@@ -6,7 +6,7 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 export default () => (
   <footer className={styles.footer}>
     <div className={styles.content}>
-      <div>&copy; 2019 Blunt Japanese Woman</div>
+      <div>&copy; 2019 - 2020 Simple Japanese Stories</div>
       <div>
         <a
           href="https://twitter.com/simplejapanese"

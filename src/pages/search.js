@@ -5,5 +5,6 @@ import PageHeader from "../components/page-header"
 export default () => (
   <Layout>
     <PageHeader text="Search" />
+    <p>Coming soon!</p>
   </Layout>
 )
