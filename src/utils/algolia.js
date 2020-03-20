@@ -3,7 +3,9 @@ const storiesQuery = `{
     nodes {
       title
       englishTitle
+      slug
       categories {
+        id
         displayText
       }
       childContentfulStoryBodyRichTextNode {
@@ -25,6 +27,7 @@ function transform(nodes) {
 
     return {
       title: story.title,
+      slug: story.slug,
       englishTitle: story.englishTitle,
       categories: story.categories.map(category => category.displayText),
       text

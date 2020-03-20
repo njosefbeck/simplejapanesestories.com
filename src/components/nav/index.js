@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "./nav.module.css"
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-//import { faSearch } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSearch } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "gatsby"
 
 export default () => (
@@ -16,11 +16,11 @@ export default () => (
       <li>
         <Link to="/stories">Stories</Link>
       </li>
-      {/*<li>
+      <li>
         <Link to="/search">
           <FontAwesomeIcon icon={faSearch} />
         </Link>
-      </li>*/}
+      </li>
     </ul>
   </nav>
 )

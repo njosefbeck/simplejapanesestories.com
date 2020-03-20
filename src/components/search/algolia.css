@@ -1,0 +1,45 @@
+.ais-SearchBox-form {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.ais-SearchBox-input {
+  width: 100%;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid #000;
+}
+
+.ais-SearchBox-reset {
+  margin-left: 10px;
+}
+
+.ais-Highlight-highlighted {
+  font-style: normal;
+  background-color: rgba(240, 85, 69, 0.7);
+}
+
+.ais-Hits-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.ais-Hits-list a,
+.ais-Hits-list a:visited,
+.ais-Hits-list a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.ais-Pagination-list {
+  display: flex;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.ais-Pagination-item {
+  margin-right: 10px;
+  font-weight: bold;
+}
